@@ -10,9 +10,9 @@ public interface ItemServices {
 	
 	ObservableList<Item> getItems();
 	
-	List <PurchaseItem> purchaseItem(int quantity);
+	void purchaseItem(String id, int quantity);
 	
-	List <PurchaseItem> purchasingItems();
+	List <PurchaseItem> purchasingList();
 	 
 	void deleteItem(String id);
 	

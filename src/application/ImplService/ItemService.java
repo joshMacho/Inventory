@@ -96,28 +96,28 @@ public class ItemService implements ItemServices {
 	}
 
 	@Override
-	public List<PurchaseItem> purchaseItem(int quantity) {
-		// TODO Auto-generated method stub
+	public void purchaseItem(String id, int quantity) {
+		// takes the id of the item, and adds it to the purchasing List.
 		conn = DBConnector.dbconnect();
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * fron Items WHERE id = ?");
-			ps.setString(1, "2");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM Items WHERE id = ?");
+			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				purchaseItem.add(new PurchaseItem(rs.getString("id"), rs.getString("name"), rs.getString("brand"), rs.getDouble("sellingPrice"), quantity));
 			}
-			return purchaseItem;
 		}catch(SQLException error) {
 			error.printStackTrace();
 		}
-		return null;
 	}
 
 	@Override
-	public List<PurchaseItem> purchasingItems() {
-		// TODO Auto-generated method stub
-		
-		return null;
+	public List<PurchaseItem> purchasingList() {
+		// TODO Displays the list of items in the purchasing chamber / list.
+		if(purchaseItem.isEmpty()) {
+			return null;
+		}
+		return purchaseItem;
 	}
 
 }

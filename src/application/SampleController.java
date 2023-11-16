@@ -26,14 +26,14 @@ public class SampleController implements Initializable{
 	}
 	
 	public void test() {
-		Item item = new Item("3","FanDango","Fan Company");
-		itemService.insertItem(item);
+		
 	}
 	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		information();
+		//information();
+		test();
 	}
 }
